@@ -9,7 +9,7 @@ function convertToObject(sourceString) {
   const items = sourceString.split(';');
   const result = {};
 
-  for (const item of items) {
+  items.map((item) => {
     const keyValue = item.split(':');
 
     if (keyValue.length === 2) {
@@ -18,9 +18,9 @@ function convertToObject(sourceString) {
 
       result[key] = value;
     }
-  }
+  });
 
-  return result; //all done
+  return result;
 }
 
 module.exports = convertToObject;
