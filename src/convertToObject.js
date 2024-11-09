@@ -10,17 +10,14 @@ function convertToObject(sourceString) {
   const result = {};
 
   items.map((item) => {
-    const keyValue = item.split(':');
+    const [key, value] = item.split(':').map((str) => str.trim());
 
-    if (keyValue.length === 2) {
-      const key = keyValue[0].trim();
-      const value = keyValue[1].trim();
-
+    if (key && value) {
       result[key] = value;
     }
   });
 
-  return result;//all done
+  return result;
 }
 
 module.exports = convertToObject;
